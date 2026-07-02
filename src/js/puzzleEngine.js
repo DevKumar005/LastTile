@@ -3,7 +3,7 @@ import { PuzzleSolver } from './solver.js';
 
 const API_BASE_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
   ? 'http://localhost:8000'
-  : 'https://your-deployed-backend-url.onrender.com'; // TODO: Replace this with your actual deployed Render API URL
+  : 'https://lasttile-backend.onrender.com'; // Replace this with your actual deployed Render API URL
 
 
 function toRoman(num) {
