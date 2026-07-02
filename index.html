@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LastTile — Neumorphism Soft UI Sliding Puzzles</title>
+    <meta name="description" content="Experience a tactile Neumorphic sliding puzzle platform with 8 distinct puzzle modes, AI solver, and custom photo puzzles." />
+    
+        <link rel="icon" type="image/png" href="/images/favicon.png" />
+    
+    <link rel="stylesheet" href="/src/style.css" />
+    
+        <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body>
+
+                <div id="loader-overlay" class="loader-overlay">
+      <div class="pl">
+        <div class="pl__outer-ring"></div>
+        <div class="pl__inner-ring"></div>
+        <div class="pl__track-cover"></div>
+        <div class="pl__ball">
+          <div class="pl__ball-texture"></div>
+          <div class="pl__ball-outer-shadow"></div>
+          <div class="pl__ball-inner-shadow"></div>
+          <div class="pl__ball-side-shadows"></div>
+        </div>
+      </div>
+    </div>
+    <script>
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          var el = document.getElementById('loader-overlay');
+          if (el) el.classList.add('hidden');
+        }, 500);
+      });
+    </script>
+
+                <div id="landing-view" class="landing-container">
+      
+            <header class="neu-header">
+        <div class="brand cursor-pointer" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+          <img src="/images/logo.png" alt="LastTile Logo" class="brand-logo-img" />
+          <div class="brand-title">LastTile</div>
+        </div>
+        <div class="header-actions">
+          <button id="btn-hero-play" class="neu-btn neu-btn-accent">
+            <i data-lucide="play-circle"></i> Play Game
+          </button>
+        </div>
+      </header>
+
+            <main class="landing-main">
+        <section class="hero-section">
+          <div class="hero-text-content">
+            <div class="hero-pill-badge">
+              <i data-lucide="layers" style="width: 14px; height: 14px;"></i> Tactile Soft UI Platform
+            </div>
+            <h1 class="hero-heading">
+              The Art of <br />
+              <span class="rainbow-gradient-text">the Slide</span>
+            </h1>
+            <p class="hero-subtext">
+              Experience a sliding puzzle platform designed for sensory mastery. Molded Neumorphic surfaces, physical sound feedback, live spectrum gradients, and an infinite flow of logic.
+            </p>
+            <div class="hero-btn-group">
+              <button id="btn-start-game-cta" class="neu-btn neu-btn-accent neu-btn-lg">
+                <i data-lucide="gamepad-2"></i> Play Game Now
+              </button>
+              <a href="#features-section" class="neu-btn neu-btn-lg">
+                <i data-lucide="grid"></i> Explore Features
+              </a>
+            </div>
+          </div>
+
+                    <div class="hero-visual-wrapper">
+            <div class="hero-pit-frame">
+              <div class="hero-pit-board">
+                <div class="hero-tile">1</div>
+                <div class="hero-tile">2</div>
+                <div class="hero-tile">3</div>
+                <div class="hero-tile">4</div>
+                <div class="hero-tile">5</div>
+                <div class="hero-tile">6</div>
+                <div class="hero-tile">7</div>
+                <div class="hero-tile">8</div>
+                <div class="hero-tile-empty"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+                <section id="features-section" class="landing-section">
+          <h2 class="section-title">Precision Engineered Play</h2>
+          <div class="features-grid">
+            
+                        <div class="neu-card feature-card">
+              <div class="feature-icon-box">
+                <i data-lucide="layout-grid"></i>
+              </div>
+              <h3 class="feature-card-title">8 Puzzle Modes</h3>
+              <p class="feature-card-desc">
+                Numbers, Alphabets, Roman Numerals, Greek Scripts, Symbols & Gems, HSL Rainbow spectrums, Picture Slices, and Klotski block challenges.
+              </p>
+            </div>
+
+                        <div class="neu-card feature-card">
+              <div class="feature-icon-box">
+                <i data-lucide="cpu"></i>
+              </div>
+              <h3 class="feature-card-title">AI-Powered A* Solver</h3>
+              <p class="feature-card-desc">
+                Never get stuck. Our heuristic solver monitors board states using Manhattan Distance & Linear Conflict penalties, guaranteeing solvable scrambles.
+              </p>
+            </div>
+
+                        <div class="neu-card feature-card">
+              <div class="feature-icon-box">
+                <i data-lucide="volume-2"></i>
+              </div>
+              <h3 class="feature-card-title">Web Audio Sound FX</h3>
+              <p class="feature-card-desc">
+                Native audio synthesizer generates organic wood clicks, shuffle effects, and victory fanfares directly in your browser.
+              </p>
+            </div>
+
+                        <div class="neu-card feature-card">
+              <div class="feature-icon-box">
+                <i data-lucide="smartphone"></i>
+              </div>
+              <h3 class="feature-card-title">100% Responsive</h3>
+              <p class="feature-card-desc">
+                Seamlessly enjoy tactile keyboard controls on desktop and smooth touch swipe gestures on mobile devices.
+              </p>
+            </div>
+
+          </div>
+        </section>
+
+                <section id="trivia-section" class="landing-section">
+          <div class="neu-card hero-trivia-card">
+            <span class="stat-label" style="color: var(--accent-primary); letter-spacing: 2px;">PRO TIPS & TRIVIA</span>
+            <div class="hero-trivia-content">
+              <h3 id="hero-trivia-quote" class="hero-trivia-quote">
+                "The 15-puzzle was originally invented by Noyes Chapman in 1880!"
+              </h3>
+              <p id="hero-trivia-tag" class="hero-trivia-tag">Historical Fact</p>
+            </div>
+          </div>
+        </section>
+
+                <section class="landing-section cta-section">
+          <div class="neu-card cta-card">
+            <h2 class="cta-heading">The last tile awaits.</h2>
+            <button id="btn-cta-launch" class="neu-btn neu-btn-accent neu-btn-lg">
+              <i data-lucide="play"></i> Start Playing LastTile
+            </button>
+          </div>
+        </section>
+      </main>
+
+            <footer class="landing-footer">
+        <div class="brand">
+          <img src="/images/logo.png" alt="LastTile Logo" class="brand-logo-img-sm" />
+          <span class="brand-title-sm">LastTile</span>
+        </div>
+        <p class="footer-copy">© 2026 LastTile. All rights reserved. • Made by Dev</p>
+      </footer>
+    </div>
+
+
+                <div id="game-view" class="app-container" style="display: none;">
+            <header class="neu-header">
+        <div class="brand cursor-pointer" id="btn-logo-home" title="Return to Homepage">
+          <img src="/images/logo.png" alt="LastTile Logo" class="brand-logo-img" />
+          <div class="brand-title">LastTile</div>
+        </div>
+
+                <div class="neu-pill-group" style="flex-wrap: wrap; justify-content: center;">
+          <button class="neu-pill-btn active" id="btn-mode-numbers">Numbers</button>
+          <button class="neu-pill-btn" id="btn-mode-alphabet">Alphabet</button>
+          <button class="neu-pill-btn" id="btn-mode-roman">Roman</button>
+          <button class="neu-pill-btn" id="btn-mode-greek">Greek</button>
+          <button class="neu-pill-btn" id="btn-mode-symbols">Symbols</button>
+          <button class="neu-pill-btn" id="btn-mode-daily">Daily</button>
+          <button class="neu-pill-btn" id="btn-mode-picture">Picture</button>
+          <button class="neu-pill-btn" id="btn-mode-klotski">Klotski</button>
+        </div>
+
+        <div class="header-actions">
+          <button class="neu-btn neu-btn-icon" id="btn-nav-home" title="Return to Homepage">
+            <i data-lucide="home"></i>
+          </button>
+          <button class="neu-btn neu-btn-icon" id="btn-audio" title="Toggle Sound">
+            <i data-lucide="volume-2" id="icon-audio"></i>
+          </button>
+          <button class="neu-btn neu-btn-icon" id="btn-help" title="How to Play">
+            <i data-lucide="help-circle"></i>
+          </button>
+        </div>
+      </header>
+
+            <div class="main-layout">
+        
+                <aside class="sidebar sidebar-left">
+                    <div class="neu-card">
+            <div class="card-title">
+              <i data-lucide="bar-chart-2" class="card-title-icon"></i> Statistics
+            </div>
+            <div class="stats-bar-vertical">
+              <div class="stat-item">
+                <span class="stat-label">Time</span>
+                <span class="stat-value" id="stat-time">00:00</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">Moves</span>
+                <span class="stat-value" id="stat-moves">0</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">Best Record</span>
+                <span class="stat-value" id="stat-best">--</span>
+              </div>
+            </div>
+          </div>
+
+                    <div class="neu-card">
+            <div class="card-title">
+              <i data-lucide="sliders" class="card-title-icon"></i> Controls
+            </div>
+                        <div class="neu-pill-group" id="grid-size-controls" style="justify-content: center; gap: 8px;">
+              <button class="neu-pill-btn" data-grid="3">3×3</button>
+              <button class="neu-pill-btn active" data-grid="4">4×4</button>
+              <button class="neu-pill-btn" data-grid="5">5×5</button>
+              <button class="neu-pill-btn" data-grid="6">6×6</button>
+            </div>
+
+            <div class="controls-grid">
+              <button class="neu-btn" id="btn-shuffle">
+                <i data-lucide="shuffle"></i> Shuffle
+              </button>
+              <button class="neu-btn" id="btn-auto-solve">
+                <i data-lucide="cpu"></i> Auto Solve
+              </button>
+            </div>
+          </div>
+        </aside>
+
+                <main class="play-area">
+                    <div class="puzzle-pit-wrapper">
+            <div class="puzzle-pit">
+              <div class="board" id="puzzle-board"></div>
+            </div>
+          </div>
+        </main>
+
+                <aside class="sidebar sidebar-right">
+                    <div class="neu-card" id="preset-card">
+            <div class="card-title">
+              <i data-lucide="image" class="card-title-icon"></i> Picture Themes
+            </div>
+            <div class="preset-grid" id="preset-grid">
+                          </div>
+            <button class="neu-btn" id="btn-custom-upload" style="width: 100%;">
+              <i data-lucide="upload"></i> Custom Photo
+            </button>
+          </div>
+
+                    <div class="neu-card">
+            <div class="card-title">
+              <i data-lucide="award" class="card-title-icon"></i> Leaderboard
+            </div>
+            <div class="records-list" id="records-list">
+                          </div>
+          </div>
+
+                    <div class="neu-card" id="facts-card">
+            <div class="card-title">
+              <i data-lucide="sparkles" class="card-title-icon"></i> Facts & Tips
+            </div>
+            <div class="fact-content-box">
+              <div class="fact-tag" id="fact-tag">Historical Fact</div>
+              <p class="fact-text" id="fact-text">
+                Loading fun facts...
+              </p>
+            </div>
+            <div class="fact-actions" style="justify-content: flex-end; gap: 10px;">
+              <button class="neu-btn neu-btn-icon" id="btn-prev-fact" title="Previous Fact">
+                <i data-lucide="chevron-left"></i>
+              </button>
+              <button class="neu-btn neu-btn-icon" id="btn-next-fact" title="Next Fact">
+                <i data-lucide="chevron-right"></i>
+              </button>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    
+        <div class="modal-overlay" id="victory-modal">
+      <div class="modal-content">
+        <div class="victory-icon"><i data-lucide="party-popper" style="width: 36px; height: 36px;"></i></div>
+        <div class="victory-title">Puzzle Solved!</div>
+        <p style="color: var(--text-secondary); font-size: 0.95rem;">
+          Outstanding performance! You completed the puzzle in Neumorphic style.
+        </p>
+
+        <div class="victory-stats">
+          <div class="victory-stat-card">
+            <span class="stat-label">Final Time</span>
+            <span class="stat-value" id="modal-final-time">00:00</span>
+          </div>
+          <div class="victory-stat-card">
+            <span class="stat-label">Total Moves</span>
+            <span class="stat-value" id="modal-final-moves">0</span>
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 12px; width: 100%;">
+          <button class="neu-btn" id="btn-modal-share" style="flex: 1;">
+            <i data-lucide="share-2"></i> Share Score
+          </button>
+          <button class="neu-btn neu-btn-accent" id="btn-modal-again" style="flex: 1;">
+            <i data-lucide="zap"></i> Play Again
+          </button>
+        </div>
+      </div>
+    </div>
+
+        <div class="modal-overlay" id="upload-modal">
+      <div class="modal-content">
+        <div class="card-title" style="font-size: 1.2rem;">
+          <i data-lucide="upload-cloud"></i> Upload Custom Image
+        </div>
+        <div class="dropzone" id="dropzone">
+          <i data-lucide="camera" style="width: 48px; height: 48px;"></i>
+          <span>Drag & drop an image here or click to browse</span>
+          <input type="file" id="file-input" accept="image/*" style="display: none;" />
+        </div>
+        <button class="neu-btn" id="btn-upload-cancel" style="width: 100%;">Cancel</button>
+      </div>
+    </div>
+
+        <div class="modal-overlay" id="help-modal">
+      <div class="modal-content" style="text-align: left; max-width: 520px;">
+        <div class="card-title" style="font-size: 1.3rem;">
+          <i data-lucide="help-circle"></i> How to Play
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 12px; font-size: 0.9rem; color: var(--text-secondary);">
+          <p><strong>Puzzle Modes:</strong> Choose between Numbers, Alphabet, Roman Numerals, Greek Letters, Symbols, Rainbow Colors, Pictures, or Klotski blocks!</p>
+          <p><strong>Keyboard Controls:</strong> Use <strong>Arrow Keys</strong> or <strong>W A S D</strong> keys to slide tiles into the empty slot.</p>
+          <p><strong>Klotski Mode:</strong> Slide blocks in the 4x5 pit to guide the big red block to the bottom exit line.</p>
+          <p><strong>Auto Solver:</strong> Click Auto Solve for automatic step-by-step AI solving!</p>
+        </div>
+        <button class="neu-btn neu-btn-accent" id="btn-help-close" style="width: 100%;">Got it!</button>
+      </div>
+    </div>
+
+        <div class="toast-container" id="toast-container"></div>
+
+    <script type="module" src="/src/js/app.js"></script>
+  </body>
+</html>
