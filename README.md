@@ -1,62 +1,116 @@
-# LastTile 
+# LastTile — Sliding Puzzles
 
-Experience a premium, visually captivating sliding puzzle web application built with a **Heavy Neumorphism (Soft UI)** design system. LastTile features tactile tile animations, 8 distinct puzzle modes, Klotski block puzzles, an advanced AI auto-solver, interactive facts, and synthesized Web Audio sound FX.
+
+**A premium sliding puzzle experience** built with **Heavy Neumorphism (Soft UI)**, tactile animations, rich puzzle modes, and a powerful AI auto-solver.
+
+[Play Now →](https://lasttile.onrender.com/)
+
+***
 
 ## ✨ Features
 
-- **8 Distinct Puzzle Modes**: Numbers (3x3 to 6x6), Alphabet (A..Z), Roman Numerals, Greek Letters, Symbols & Gems, Daily Challenge, Picture Themes, and Klotski Block Mode.
-- **Advanced AI Auto-Solver**: A powerful Python backend utilizing A* Search (Manhattan Distance + Linear Conflict) and Layer-by-Layer reduction algorithms to solve even complex 5x5 and 6x6 boards.
-- **Picture Puzzles & Slicer**: Play with beautiful procedural theme presets (Cyberpunk, Neon, Abstract, etc.) or drag-and-drop your own custom images directly into the browser to slice them into a puzzle.
-- **Master's Journey (Klotski)**: Built-in block sliding engine for rectangular and diverse block logic.
-- **Tactile Sound FX**: Custom Web Audio API synthesizer generates soft wooden pops, clicks, and victory fanfare without needing heavy MP3 files.
-- **Pure Neumorphic Aesthetics**: Beautiful, clean, modern UI with interactive elements, smooth view transitions, and glowing gradients.
+- **8 Distinct Puzzle Modes**
+  - Numbers (3×3 to 6×6)
+  - Alphabet (A–Z)
+  - Roman Numerals
+  - Greek Letters
+  - Symbols & Gems
+  - Daily Challenge
+  - **Picture Puzzles** (drag & drop your own images)
+  - **Klotski Block Mode**
+- **Advanced AI Auto-Solver**
+  - Python backend using **A* Search** (Manhattan Distance + Linear Conflict)
+  - Layer-by-layer reduction algorithm for larger puzzles (5×5 & 6×6)
+  - Extremely fast and reliable
+- **Immersive Audio**
+  - Custom **Web Audio API** synthesizer
+  - Realistic wooden clicks, shuffle sounds, and victory fanfares
+- **Beautiful Design**
+  - Heavy Neumorphic / Soft UI aesthetic
+  - Smooth animations and glowing effects
+  - Fully responsive (desktop + mobile touch support)
 
-## 🛠️ Architecture
+***
 
-LastTile operates on a lightweight, decoupled full-stack architecture:
-- **Frontend**: Vanilla JavaScript (ES6+), HTML5, CSS3 built and bundled with **Vite**.
-- **Backend API**: Native **Python 3** HTTP Server running the complex AI solver logic.
+## 🛠️ Tech Stack
 
----
+- **Frontend**: Vanilla JavaScript (ES6+), HTML5, CSS3, and **Vite**
+- **Backend**: Pure **Python 3** HTTP server (no external dependencies)
+- **Solver**: Custom hybrid A* + layer-by-layer algorithm
+- **Audio**: Web Audio API
+
+***
 
 ## 🚀 Running Locally
 
-You'll need [Node.js](https://nodejs.org/) and [Python 3](https://python.org/) installed on your machine.
+### Prerequisites
 
-### 1. Start the Python AI Backend
-The frontend works without the backend (using a built-in JS fallback solver), but the Python backend provides maximum performance for complex AI solutions.
+- [Node.js](https://nodejs.org/)
+- [Python 3](https://python.org/)
+
+### 1. Start Python Backend (AI Solver)
+
 ```bash
-# Open a terminal and run the server
 python3 server.py
 ```
 
+### 2. Start Frontend
 
-### 2. Start the Frontend Vite Server
 ```bash
-# Open a new terminal tab
 npm install
-
-# Start the Vite development server
 npm run dev
 ```
 
+The frontend works without the backend using a built-in JavaScript solver.
 
----
+***
 
 ## 🌍 Deployment
 
-### Deploy the Backend (Python)
-1. In Render, create a new **Web Service**.
-2. Connect your GitHub repository.
-3. Start Command: `python3 server.py`.
+### Backend (Render Web Service)
 
-### Deploy the Frontend (Vite)
-1. In Render, create a new **Static Site**.
-2. Connect your GitHub repository.
-3. Build Command: `npm run build`.
-4. Publish Directory: `dist`.
+1. Create a Web Service on Render.
+2. Connect this repository.
+3. Set the start command to `python3 server.py`.
 
-*(Note: Ensure you update `src/js/puzzleEngine.js` to point the API fetch URL to your new Render Backend URL instead of `localhost:8000` before deploying).*
+### Frontend (Static Site)
 
----
+1. Create a Static Site on Render.
+2. Set the build command to `npm run build`.
+3. Set the publish directory to `dist`.
 
+**Important:** Update the API URL in `src/js/puzzleEngine.js` to point to your deployed backend.
+
+***
+
+## 📁 Project Structure
+
+```text
+LastTile/
+├── public/
+│   └── images/
+├── src/
+│   └── js/              # Main game logic
+├── index.html
+├── server.py            # Python AI Solver API
+├── solver.py            # Core solving algorithms
+├── package.json
+└── vite.config.js
+```
+
+***
+
+## 🤝 Contributing
+
+Pull requests are welcome. You can help by:
+
+- Adding new themes
+- Improving the solver
+- Enhancing UI/UX
+- Fixing bugs
+
+***
+
+The last tile awaits.
+
+[Play LastTile](https://lasttile.onrender.com/)
